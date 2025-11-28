@@ -22,12 +22,9 @@ const TodoList = ({todos,setTodos}) => {
                 return item;
         })
 
-                // updating the state asynchronously
-        async function  updatetodos()
-        {
-            await    setTodos(newtodos);
-        }
-                updatetodos();
+            setTodos(newtodos);
+        
+              
                 localStorage.removeItem("todos");
           
              localStorage.setItem("todos",JSON.stringify(newtodos) );
