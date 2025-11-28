@@ -24,17 +24,20 @@ const [editinput,seteditinput]=useState(item);
     
   <div>
     {/* buttons for edit and delete */}
-             <button className='edit-btn' onClick={(e)=>{
-
-                    settogleedit(!togleedit)
-                    if(!togleedit){
-                      if(editinput.trim()!=="")
-                        setnewvalue(editinput,index)
-
-                    }
-
-
-             }}>
+          <button
+  className='edit-btn'
+  onClick={() => {
+    if (togleedit) {
+      // SAVE LOGIC
+      if (editinput.trim() !== "") {
+        setnewvalue(editinput, index);
+      }
+      settogleedit(false);   // Exit edit mode
+    } else {
+      settogleedit(true);    // Enter edit mode
+    }
+  }}
+>
 
                 {togleedit?"Save":"Edit"}
              </button>
