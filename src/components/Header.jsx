@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import "../components/Header.css"
 
 const Header = ({todos,setTodos}) => {
 
@@ -21,13 +22,13 @@ localStorage.setItem("todos",JSON.stringify([...todos,{todo:input,isCompleted:fa
 
 
   return (
-    <div>
+    <div className='header'>
 
 
-    <form action="" onSubmit={handlesubmit}>
+    <form className='form' action="" onSubmit={handlesubmit}>
     {/* CAPTURING THE INPUT FOR TODOS  */}
-    <input type="text" value={input} onChange={(e)=>setInput(e.target.value)}  />
-    <input type="submit" value={"submit"} />
+    <input className='main-input' type="text" value={input} onChange={(e)=>setInput(e.target.value)}  />
+    <input className='submit-btn' type="submit" value={"submit"} />
     </form>
 
     </div>

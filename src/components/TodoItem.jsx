@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import "../components/ToDoItem.css"
 
 const TodoItem = ({index,iscompleted,item,setnewvalue,deletevalue,linethrough}) => {
 
@@ -8,16 +9,17 @@ const [editinput,seteditinput]=useState(item);
 
 
   return (
-    <div>
-        <div onClick={()=>{linethrough(index)}} style={{textDecoration:iscompleted?"line-through":"none"}}>
-            <p>{index}</p>
-          { togleedit ? <input type="text" onChange={(e)=>{seteditinput(e.target.value)}} value={editinput} /> : 
+    <div className='todo-item'>
+        <div className='item' onClick={()=>{linethrough(index)}} style={{textDecoration:iscompleted?"line-through":"none",
+          color:iscompleted?"red":"black"}}>
+            <p className='index'>{index}</p>
+          { togleedit ? <input type="text" className='input-edit' onChange={(e)=>{seteditinput(e.target.value)}} value={editinput} /> : 
           
-          <span >{editinput}</span>}
+          <span className='todocontent' >{editinput} {iscompleted&&<pre style={{"display":"inline"}}>  Completed</pre>}</span>}
         </div>
     
   <div>
-             <button onClick={(e)=>{
+             <button className='edit-btn' onClick={(e)=>{
 
                     settogleedit(!togleedit)
                     if(!togleedit){
@@ -31,7 +33,7 @@ const [editinput,seteditinput]=useState(item);
                 {togleedit?"Save":"Edit"}
              </button>
             
-             <button onClick={()=>deletevalue(index)}>Delete</button>
+             <button className='delete-btn' onClick={()=>deletevalue(index)}>Delete</button>
   </div>
 
     </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import TodoItem from './TodoItem'
+import "../components/TodoList.css"
 
 const TodoList = ({todos,setTodos}) => {
     function setnewvalue (editinput,index)
@@ -81,7 +82,7 @@ const TodoList = ({todos,setTodos}) => {
 
 
   return (
-    <div>
+    <div className='todolist'>
 
 {
     todos.map((item,index)=>{
