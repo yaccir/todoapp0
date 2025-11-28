@@ -11,7 +11,10 @@ const [todos, setTodos] = useState(() => {
 
   return (
     <div>
+      
+      {/* header component responsible for adding todos */}
       <Header todos={todos} setTodos={setTodos}/>
+       {/* todolist component responsible for displaying todos */}
       <TodoList todos={todos} setTodos={setTodos}/>
 
     </div>

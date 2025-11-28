@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const TodoItem = ({index,iscompleted,item,setnewvalue,deletevalue}) => {
+const TodoItem = ({index,iscompleted,item,setnewvalue,deletevalue,linethrough}) => {
 
 const [togleedit,settogleedit]=useState(false);
 const [editinput,seteditinput]=useState(item);
@@ -9,11 +9,11 @@ const [editinput,seteditinput]=useState(item);
 
   return (
     <div>
-        <div>
+        <div onClick={()=>{linethrough(index)}} style={{textDecoration:iscompleted?"line-through":"none"}}>
             <p>{index}</p>
           { togleedit ? <input type="text" onChange={(e)=>{seteditinput(e.target.value)}} value={editinput} /> : 
           
-          <span style={{textDecoration:iscompleted?"line-through":"none"}}>{editinput}</span>}
+          <span >{editinput}</span>}
         </div>
     
   <div>

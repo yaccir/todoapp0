@@ -11,6 +11,7 @@ e.preventDefault();
 setInput("");
 
 setTodos([...todos,{todo:input,isCompleted:false}])
+// STORING THE TODOS TO THE LOCAL STORAGE 
 localStorage.setItem("todos",JSON.stringify([...todos,{todo:input,isCompleted:false}]) );
 
 
@@ -24,7 +25,7 @@ localStorage.setItem("todos",JSON.stringify([...todos,{todo:input,isCompleted:fa
 
 
     <form action="" onSubmit={handlesubmit}>
-
+    {/* CAPTURING THE INPUT FOR TODOS  */}
     <input type="text" value={input} onChange={(e)=>setInput(e.target.value)}  />
     <input type="submit" value={"submit"} />
     </form>

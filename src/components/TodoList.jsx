@@ -47,6 +47,36 @@ const TodoList = ({todos,setTodos}) => {
 
     }
 
+    function linethrough(index)
+    {
+
+
+ const newtodos=todos.map((item,index2)=>{
+        
+   console.log(index2);
+   console.log(index);
+                if(index==index2)
+                {
+                          return {
+                    ...item,
+                    todo: item.todo,
+                    isCompleted: !item.isCompleted,
+                };
+             
+                }
+                return item;
+        })
+
+       
+               setTodos(newtodos);
+     
+                localStorage.removeItem("todos");
+          
+             localStorage.setItem("todos",JSON.stringify(newtodos) );
+
+    }
+
+
 
 
 
@@ -57,7 +87,7 @@ const TodoList = ({todos,setTodos}) => {
     todos.map((item,index)=>{
 
         return(<TodoItem key={index} index={index} item={item.todo} 
-             iscompleted={item.isCompleted} deletevalue={deletevalue}  setnewvalue={setnewvalue} />)
+            linethrough={linethrough} iscompleted={item.isCompleted} deletevalue={deletevalue}  setnewvalue={setnewvalue} />)
     })
 }
 
