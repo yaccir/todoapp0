@@ -3,6 +3,9 @@ import TodoItem from './TodoItem'
 import "../components/TodoList.css"
 
 const TodoList = ({todos,setTodos}) => {
+
+
+    //editing the todo item
     function setnewvalue (editinput,index)
     {
         const newtodos=todos.map((item,index2)=>{
@@ -19,6 +22,7 @@ const TodoList = ({todos,setTodos}) => {
                 return item;
         })
 
+                // updating the state asynchronously
         async function  updatetodos()
         {
             await    setTodos(newtodos);
@@ -30,7 +34,7 @@ const TodoList = ({todos,setTodos}) => {
 
     }
 
-
+// deleting the todo item
      function deletevalue (index)
     {
         const newtodos=todos.filter((item,index2)=>{
@@ -47,7 +51,7 @@ const TodoList = ({todos,setTodos}) => {
         localStorage.setItem("todos",JSON.stringify(newtodos) );
 
     }
-
+// toggling the line through for completed todos
     function linethrough(index)
     {
 
